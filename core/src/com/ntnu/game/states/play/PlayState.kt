@@ -5,6 +5,7 @@ import com.ntnu.game.states.GameStateManager
 import com.ntnu.game.states.IState
 
 class PlayState(gsm: GameStateManager)  : IState {
+
     override fun render(sb: SpriteBatch) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }

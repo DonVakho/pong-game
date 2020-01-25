@@ -32,10 +32,14 @@ class PongGame : ApplicationAdapter() {
 
     companion object {
 
-        const val SCREEN_WIDTH = 350
+        const val SCREEN_WIDTH = 350f
 
-        const val SCREEN_HEIGHT = 600
+        const val SCREEN_HEIGHT = 600f
 
         const val TITLE = "Ping pong"
+
+        const val PADDLE_WIDTH = 50f
+
+        const val PADDLE_HEIGHT = 10f
     }
 }
