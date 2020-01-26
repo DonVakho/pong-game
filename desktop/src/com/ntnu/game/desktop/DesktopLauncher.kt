@@ -9,7 +9,7 @@ object DesktopLauncher {
     fun main(arg: Array<String>) {
         val config = LwjglApplicationConfiguration()
         config.width = PongGame.SCREEN_WIDTH.toInt()
-        config.height = PongGame.SCREEN_HEIGHT.toInt()
+        config.height = PongGame.APP_HEIGHT
         config.title = PongGame.TITLE
         LwjglApplication(PongGame(), config)
     }

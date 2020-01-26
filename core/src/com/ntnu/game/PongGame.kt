@@ -36,7 +36,9 @@ class PongGame : ApplicationAdapter() {
 
         const val SCREEN_WIDTH = 350f
 
-        const val SCREEN_HEIGHT = 600f
+        const val SCREEN_HEIGHT = 550f
+
+        const val APP_HEIGHT = 600
 
         const val PADDLE_WIDTH = 75f
 

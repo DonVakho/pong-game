@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.math.Vector2
 import com.ntnu.game.PongGame
 
-class Paddle(position: Vector2 = Vector2(0f, 0f),
+class Paddle(position: Vector2 = Vector2((PongGame.SCREEN_WIDTH - PongGame.PADDLE_WIDTH)/2, 0f),
              movement: Vector2 = Vector2(0f, 0f),
              sprite: Sprite = Sprite(Texture("paddle.png"))) : MovingObject(position, movement, sprite) {
 

@@ -1,6 +1,8 @@
 package com.ntnu.game
 
+import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.Texture
+import com.badlogic.gdx.graphics.g2d.BitmapFont
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.math.Vector2
 import com.ntnu.game.sprites.Ball
@@ -17,7 +19,19 @@ class GameLogic {
 
     private val ball: Ball = Ball(Vector2(100f, 200f), Vector2(2f, 2f))
 
+    private var playerLowScore = 0
+
+    private var playerHighScore = 0
+
+    private val scoreLabel: BitmapFont = BitmapFont()
+
+    init {
+        scoreLabel.color = Color.BLACK
+    }
+
     fun update() {
+        scoreHigh()
+        scoreLow()
         wallCollision()
         paddleCollision()
         ball.update()
@@ -26,6 +40,9 @@ class GameLogic {
     }
 
     fun render(sb: SpriteBatch) {
+        sb.begin()
+        scoreLabel.draw(sb, "P1: $playerLowScore P2: $playerHighScore", 5f, PongGame.APP_HEIGHT - 10f)
+        sb.end()
         renderNet(sb)
         controllers.render()
         paddleLow.render(sb)
@@ -58,8 +75,31 @@ class GameLogic {
             ball.hitPaddles()
         } else if ((ball.position.x >= paddleHigh.position.x)
                 && ball.position.x <= (paddleHigh.position.x + (PongGame.PADDLE_WIDTH - PongGame.BALL_DIAMETER / 2))
-                && ball.position.y >= PongGame.SCREEN_HEIGHT - PongGame.PADDLE_HEIGHT*2){
+                && ball.position.y >= PongGame.SCREEN_HEIGHT - PongGame.PADDLE_HEIGHT * 2) {
             ball.hitPaddles()
         }
+    }
+
+    private fun scoreLow() {
+        if (ball.position.y >= PongGame.SCREEN_HEIGHT) {
+            playerLowScore++
+            playAgain()
+        }
+    }
+
+    private fun scoreHigh() {
+        if (ball.position.y <= 0) {
+            playerHighScore++
+            playAgain()
+        }
+    }
+
+    private fun playAgain() {
+        ball.position.y = (PongGame.SCREEN_HEIGHT - PongGame.BALL_DIAMETER) / 2
+        ball.movement.y = -ball.movement.y
+    }
+
+    fun gameOver(): Int{
+        return if(playerLowScore == 5) 1 else if(playerHighScore == 5) -1 else 0
     }
 }
