@@ -51,7 +51,7 @@ class Controllers {
 
         touchPadLow.addListener(object : DragListener() {
             override fun drag(event: InputEvent?, x: Float, y: Float, pointer: Int) {
-                moveLow = if (prevLow < x) 1 else -1
+                moveLow = if (prevLow < x) 2 else -2
                 prevLow = x
             }
 
@@ -63,7 +63,7 @@ class Controllers {
         touchPadHigh.addListener(object : DragListener() {
             override fun drag(event: InputEvent?, x: Float, y: Float, pointer: Int) {
                 super.drag(event, x, y, pointer)
-                moveHigh = if (prevHigh < x) 1 else -1
+                moveHigh = if (prevHigh < x) 2 else -2
                 prevHigh = x
             }
 

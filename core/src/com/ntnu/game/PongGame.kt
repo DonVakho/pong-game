@@ -19,6 +19,7 @@ class PongGame : ApplicationAdapter() {
         Gdx.gl.glClearColor(1f, 1f, 1f, 1f)
         gsm.push(StartPageState(gsm))
     }
+
     override fun render() {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
         gsm.update(Gdx.graphics.deltaTime)
@@ -34,18 +35,18 @@ class PongGame : ApplicationAdapter() {
 
         const val TITLE = "Ping pong"
 
-        const val SCREEN_WIDTH = 350f
+        const val SCREEN_WIDTH = 1080f
 
-        const val SCREEN_HEIGHT = 550f
+        const val SCREEN_HEIGHT = 1870f
 
-        const val APP_HEIGHT = 600
+        const val APP_HEIGHT = 1920
 
-        const val PADDLE_WIDTH = 75f
+        const val PADDLE_WIDTH = SCREEN_WIDTH / 4.66666666f
 
-        const val PADDLE_HEIGHT = 10f
+        const val PADDLE_HEIGHT = 20f
 
-        const val BALL_DIAMETER = 19f
+        const val BALL_DIAMETER = 30f
 
-        const val NETT_WIDTH = 8f
+        const val NETT_WIDTH = 15f
     }
 }

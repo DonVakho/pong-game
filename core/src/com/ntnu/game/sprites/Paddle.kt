@@ -11,8 +11,8 @@ class Paddle(position: Vector2 = Vector2((PongGame.SCREEN_WIDTH - PongGame.PADDL
              sprite: Sprite = Sprite(Texture("paddle.png"))) : MovingObject(position, movement, sprite) {
 
     fun update(movement: Float) {
-        if(inBounds(position.x + movement * 4)){
-            position.x += movement * 4
+        if(inBounds(position.x + movement * 6)){
+            position.x += movement * 6
         }
     }
 

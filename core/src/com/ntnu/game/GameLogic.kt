@@ -17,7 +17,7 @@ class GameLogic {
 
     private val paddleHigh: Paddle = Paddle(Vector2(0f, PongGame.SCREEN_HEIGHT - PongGame.PADDLE_HEIGHT))
 
-    private val ball: Ball = Ball(Vector2(100f, 200f), Vector2(2f, 2f))
+    private val ball: Ball = Ball(Vector2(100f, 200f), Vector2(7f, 8f))
 
     private var playerLowScore = 0
 
@@ -27,6 +27,7 @@ class GameLogic {
 
     init {
         scoreLabel.color = Color.BLACK
+        scoreLabel.data.setScale(3f)
     }
 
     fun update() {
