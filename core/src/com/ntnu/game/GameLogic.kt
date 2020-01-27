@@ -101,6 +101,6 @@ class GameLogic {
     }
 
     fun gameOver(): Int{
-        return if(playerLowScore == 5) 1 else if(playerHighScore == 5) -1 else 0
+        return if(playerLowScore == 3) 1 else if(playerHighScore == 3) -1 else 0
     }
 }

@@ -18,9 +18,9 @@ class PlayState(gsm: GameStateManager)  :  BaseState(gsm) {
 
     override fun update(dt: Float) {
         if(game.gameOver() == 1){
-            gsm.set(GameOverState(gsm))
+            gsm.set(GameOverState(gsm, 1))
         }else if (game.gameOver() == -1){
-            gsm.set(GameOverState(gsm))
+            gsm.set(GameOverState(gsm, 2))
         }
         game.update()
     }
