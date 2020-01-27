@@ -9,7 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Touchpad
 import com.badlogic.gdx.scenes.scene2d.utils.DragListener
 import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable
 import com.badlogic.gdx.utils.viewport.ScreenViewport
-import com.ntnu.game.PongGame
+import com.ntnu.game.states.BaseState
 
 class Controllers {
 
@@ -39,15 +39,15 @@ class Controllers {
         touchPadLow.setBounds(
                 -50f,
                 0f,
-                PongGame.SCREEN_WIDTH+ 50,
-                PongGame.SCREEN_HEIGHT / 2)
+                BaseState.SCREEN_WIDTH + 50,
+                BaseState.SCREEN_HEIGHT / 2)
 
         val touchPadHigh = Touchpad(10f, touchPadStyle)
         touchPadHigh.setBounds(
                 -50f,
-                PongGame.SCREEN_HEIGHT / 2,
-                PongGame.SCREEN_WIDTH + 50,
-                PongGame.SCREEN_HEIGHT / 2)
+                BaseState.SCREEN_HEIGHT / 2,
+                BaseState.SCREEN_WIDTH + 50,
+                BaseState.SCREEN_HEIGHT / 2)
 
         touchPadLow.addListener(object : DragListener() {
             override fun drag(event: InputEvent?, x: Float, y: Float, pointer: Int) {

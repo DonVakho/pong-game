@@ -4,9 +4,9 @@ import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.Sprite
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.math.Vector2
-import com.ntnu.game.PongGame
+import com.ntnu.game.states.BaseState
 
-class Paddle(position: Vector2 = Vector2((PongGame.SCREEN_WIDTH - PongGame.PADDLE_WIDTH)/2, 0f),
+class Paddle(position: Vector2 = Vector2((BaseState.SCREEN_WIDTH - BaseState.PADDLE_WIDTH)/2, 0f),
              movement: Vector2 = Vector2(0f, 0f),
              sprite: Sprite = Sprite(Texture("paddle.png"))) : MovingObject(position, movement, sprite) {
 
@@ -21,12 +21,12 @@ class Paddle(position: Vector2 = Vector2((PongGame.SCREEN_WIDTH - PongGame.PADDL
         sb.draw(sprite,
                 position.x,
                 position.y,
-                PongGame.PADDLE_WIDTH,
-                PongGame.PADDLE_HEIGHT)
+                BaseState.PADDLE_WIDTH,
+                BaseState.PADDLE_HEIGHT)
         sb.end()
     }
 
     private fun inBounds(pos: Float): Boolean{
-        return (pos + PongGame.PADDLE_WIDTH) <= PongGame.SCREEN_WIDTH && pos >= 0
+        return (pos + BaseState.PADDLE_WIDTH) <= BaseState.SCREEN_WIDTH && pos >= 0
     }
 }

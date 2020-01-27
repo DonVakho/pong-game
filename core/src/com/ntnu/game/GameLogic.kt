@@ -8,6 +8,7 @@ import com.badlogic.gdx.math.Vector2
 import com.ntnu.game.sprites.Ball
 import com.ntnu.game.sprites.Controllers
 import com.ntnu.game.sprites.Paddle
+import com.ntnu.game.states.BaseState
 
 class GameLogic {
 
@@ -15,7 +16,7 @@ class GameLogic {
 
     private val paddleLow: Paddle = Paddle()
 
-    private val paddleHigh: Paddle = Paddle(Vector2(0f, PongGame.SCREEN_HEIGHT - PongGame.PADDLE_HEIGHT))
+    private val paddleHigh: Paddle = Paddle(Vector2(0f, BaseState.SCREEN_HEIGHT - BaseState.PADDLE_HEIGHT))
 
     private val ball: Ball = Ball(Vector2(100f, 200f), Vector2(7f, 8f))
 
@@ -42,7 +43,7 @@ class GameLogic {
 
     fun render(sb: SpriteBatch) {
         sb.begin()
-        scoreLabel.draw(sb, "P1: $playerLowScore P2: $playerHighScore", 5f, PongGame.APP_HEIGHT - 10f)
+        scoreLabel.draw(sb, "P1: $playerLowScore P2: $playerHighScore", 5f, BaseState.APP_HEIGHT - 10f)
         sb.end()
         renderNet(sb)
         controllers.render()
@@ -56,33 +57,33 @@ class GameLogic {
         sb.begin()
         sb.draw(netTexture,
                 0f,
-                (PongGame.SCREEN_HEIGHT - PongGame.NETT_WIDTH) / 2,
-                PongGame.SCREEN_WIDTH,
-                PongGame.NETT_WIDTH
+                (BaseState.SCREEN_HEIGHT - BaseState.NETT_WIDTH) / 2,
+                BaseState.SCREEN_WIDTH,
+                BaseState.NETT_WIDTH
         )
         sb.end()
     }
 
     private fun wallCollision() {
-        if ((ball.position.x + PongGame.BALL_DIAMETER >= PongGame.SCREEN_WIDTH) || (ball.position.x <= 0f)) {
+        if ((ball.position.x + BaseState.BALL_DIAMETER >= BaseState.SCREEN_WIDTH) || (ball.position.x <= 0f)) {
             ball.hitSideWall()
         }
     }
 
     private fun paddleCollision() {
         if ((ball.position.x >= paddleLow.position.x)
-                && ball.position.x <= (paddleLow.position.x + (PongGame.PADDLE_WIDTH - PongGame.BALL_DIAMETER / 2))
-                && ball.position.y <= 0 + PongGame.PADDLE_HEIGHT) {
+                && ball.position.x <= (paddleLow.position.x + (BaseState.PADDLE_WIDTH - BaseState.BALL_DIAMETER / 2))
+                && ball.position.y <= 0 + BaseState.PADDLE_HEIGHT) {
             ball.hitPaddles()
         } else if ((ball.position.x >= paddleHigh.position.x)
-                && ball.position.x <= (paddleHigh.position.x + (PongGame.PADDLE_WIDTH - PongGame.BALL_DIAMETER / 2))
-                && ball.position.y >= PongGame.SCREEN_HEIGHT - PongGame.PADDLE_HEIGHT * 2) {
+                && ball.position.x <= (paddleHigh.position.x + (BaseState.PADDLE_WIDTH - BaseState.BALL_DIAMETER / 2))
+                && ball.position.y >= BaseState.SCREEN_HEIGHT - BaseState.PADDLE_HEIGHT * 2) {
             ball.hitPaddles()
         }
     }
 
     private fun scoreLow() {
-        if (ball.position.y >= PongGame.SCREEN_HEIGHT) {
+        if (ball.position.y >= BaseState.SCREEN_HEIGHT) {
             playerLowScore++
             playAgain()
         }
@@ -96,7 +97,7 @@ class GameLogic {
     }
 
     private fun playAgain() {
-        ball.position.y = (PongGame.SCREEN_HEIGHT - PongGame.BALL_DIAMETER) / 2
+        ball.position.y = (BaseState.SCREEN_HEIGHT - BaseState.BALL_DIAMETER) / 2
         ball.movement.y = -ball.movement.y
     }
 

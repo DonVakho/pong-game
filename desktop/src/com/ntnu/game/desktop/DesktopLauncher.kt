@@ -8,9 +8,9 @@ object DesktopLauncher {
     @JvmStatic
     fun main(arg: Array<String>) {
         val config = LwjglApplicationConfiguration()
-        config.width = PongGame.SCREEN_WIDTH.toInt()
-        config.height = PongGame.APP_HEIGHT
-        config.title = PongGame.TITLE
+        config.width = 350
+        config.height = 600
+        config.title = "Pong"
         LwjglApplication(PongGame(), config)
     }
 }

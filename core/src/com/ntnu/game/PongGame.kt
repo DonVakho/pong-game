@@ -31,22 +31,4 @@ class PongGame : ApplicationAdapter() {
         batch?.dispose()
     }
 
-    companion object {
-
-        const val TITLE = "Ping pong"
-
-        const val SCREEN_WIDTH = 1080f
-
-        const val SCREEN_HEIGHT = 1870f
-
-        const val APP_HEIGHT = 1920
-
-        const val PADDLE_WIDTH = SCREEN_WIDTH / 4.66666666f
-
-        const val PADDLE_HEIGHT = 20f
-
-        const val BALL_DIAMETER = 30f
-
-        const val NETT_WIDTH = 15f
-    }
 }

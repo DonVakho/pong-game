@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.Sprite
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.math.Vector2
-import com.ntnu.game.PongGame
+import com.ntnu.game.states.BaseState
 
 class Ball(position: Vector2 = Vector2(0f, 0f),
            movement: Vector2 = Vector2(0f, 0f),
@@ -19,8 +19,8 @@ class Ball(position: Vector2 = Vector2(0f, 0f),
         sb.draw(sprite,
                 position.x,
                 position.y,
-                PongGame.BALL_DIAMETER,
-                PongGame.BALL_DIAMETER)
+                BaseState.BALL_DIAMETER,
+                BaseState.BALL_DIAMETER)
         sb.end()
     }
 

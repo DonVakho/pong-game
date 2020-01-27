@@ -6,10 +6,9 @@ import com.badlogic.gdx.graphics.g2d.GlyphLayout
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.scenes.scene2d.InputEvent
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener
-import com.ntnu.game.PongGame
 import com.ntnu.game.states.play.PlayState
 
-class GameOverState(gsm: GameStateManager, private val winner: Int) : BaseState(gsm) {
+class GameOverState(gsm: GameStateManager, winner: Int) : BaseState(gsm) {
 
     private val winnerLabel: BitmapFont = BitmapFont()
 
@@ -19,7 +18,7 @@ class GameOverState(gsm: GameStateManager, private val winner: Int) : BaseState(
         winnerLabel.color = Color.BLACK
         winnerLabel.data.setScale(3.5f)
         layout.setText(winnerLabel, "Player: $winner won")
-        val playAgain = createTxtButton("Play Again", skin, PongGame.SCREEN_HEIGHT / 2)
+        val playAgain = createTxtButton("Play Again", skin, SCREEN_HEIGHT / 2)
         playAgain.addListener(object : ClickListener() {
             override fun clicked(event: InputEvent?, x: Float, y: Float) {
                 gsm.push(PlayState(gsm))
@@ -33,7 +32,7 @@ class GameOverState(gsm: GameStateManager, private val winner: Int) : BaseState(
 
     override fun render(sb: SpriteBatch) {
         sb.begin()
-        winnerLabel.draw(sb, layout, (PongGame.SCREEN_WIDTH - layout.width) / 2, PongGame.APP_HEIGHT - 500f)
+        winnerLabel.draw(sb, layout, (SCREEN_WIDTH - layout.width) / 2, APP_HEIGHT - 500f)
         sb.end()
         super.render(sb)
     }
